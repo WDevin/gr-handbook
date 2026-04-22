@@ -31,14 +31,10 @@ export default function PapersPage() {
               <span className="font-medium text-[var(--text-primary)]">当前收录：</span>
               共 {payload.items.length} 篇（列表按公布日期从新到旧；首屏 20 篇，下滑自动分批加载）
             </p>
-            <p className="mt-1">
-              <span className="font-medium text-[var(--text-primary)]">查询：</span>
-              <code className="font-mono text-xs text-[var(--text-muted)]">{payload.query}</code>
+            <p className="mt-2 leading-relaxed text-[var(--text-muted)]">
+              论文来自 arXiv 自动检索（生成式推荐、推荐系统与 LLM 等相关方向）；列表为增量合并、按 id
+              去重，新稿会经简易机构/会议信号过滤。检索与筛选均有疏漏，中文题名为机翻辅助，请以原文为准并自行判断相关性。
             </p>
-            {payload.mergePolicy ? (
-              <p className="mt-2 text-[var(--text-muted)]">{payload.mergePolicy}</p>
-            ) : null}
-            <p className="mt-2 text-[var(--text-muted)]">{payload.disclaimer}</p>
           </div>
 
           <PapersList key={payload.fetchedAt} items={payload.items} />

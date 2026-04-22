@@ -4,6 +4,16 @@
 
 格式参考 [Keep a Changelog](https://keepachangelog.com/zh-CN/1.0.0/)，版本号遵循 [语义化版本](https://semver.org/lang/zh-CN/)。
 
+## [1.3.0] - 2026-04-22
+
+### 变更
+
+- **arXiv 拉取**（`scripts/fetch-papers.mjs`）：检索改为以 **推荐系统 / recsys** 为核心（`recommender` 与 `user`/`item` 同现、`recsys`、协同过滤、序列表征、或 LLM/生成式 与 recsys+user|item 同现），**生成式推荐**作为子类，避免临床指南/ RAG 等因词干与宽泛 OR 误命中；`max_results` 提至 80；对 429/502/503 增加退避重试。写入 JSON 的 `mergePolicy` / `disclaimer` 与上述策略一致。
+- **机翻**：对历史条目中仍缺 `titleZh` 的英文题在写入前 **补译**（backfill），减少列表中英混排。
+- **每日论文页**（`/papers`）：合并为一段可读的 arXiv 与合并策略说明，不再在页内展示整段 API URL 与重复 disclaimer。
+- **布局**：`html` / `body` 增加 `suppressHydrationWarning`，抑制主题或扩展导致的 hydration 告警噪声。
+- **数据**：`public/data/papers-latest.json` 在收紧检索后 **清空重抓**（经机构/会议启发式后当前收录条数以文件为准）。
+
 ## [1.0.0] - 2026-04-22
 
 首个对外可用的稳定版本。

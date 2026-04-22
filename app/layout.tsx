@@ -36,8 +36,12 @@ export default function RootLayout({
     <html
       lang="zh-CN"
       className={`${notoSansSC.variable} ${geistMono.variable} h-full`}
+      suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col antialiased">
+      <body
+        className="min-h-full flex flex-col antialiased"
+        suppressHydrationWarning
+      >
         <SiteHeader />
         <main className="flex-1">{children}</main>
         <SiteFooter />

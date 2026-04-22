@@ -15,9 +15,33 @@ const root = path.join(__dirname, "..");
 const outDir = path.join(root, "public", "data");
 const outFile = path.join(outDir, "papers-latest.json");
 
-const MAX_FETCH = 70;
-const SEARCH = `search_query=all:recommendation+AND+all:generative&sortBy=submittedDate&sortOrder=descending&max_results=${MAX_FETCH}`;
-const API = `http://export.arxiv.org/api/query?${SEARCH}`;
+const MAX_FETCH = 80;
+
+/**
+ * arXiv 布尔检索：只收「推荐系统 / recsys」向论文；生成式推荐是其中的子类，不单独用宽泛 OR 拉全库。
+ *
+ * 误收根因（例 2604.17340 临床指南）：arXiv 上 recommender 与「Recommendation」词干同族；
+ * 且 generative ∧ recommendation 与 RAG 的「Retrieval」易与推荐语境中的 retrieval 叠合。
+ * 故取消：裸 all:recommender、独立 OR「recommendation system(s)」、generative ∧ recommendation 等宽分支。
+ *
+ * 结构：显式 recsys 信号（recommender 须与 user|item 等同现，或 recsys/CF/序列会话点击；LLM/生成式再叠在同一 rec 核上）。
+ */
+const ARXIV_SEARCH_QUERY = [
+  "(",
+  [
+    "(all:recommender AND (all:user OR all:item))",
+    "all:recsys",
+    "all:\"collaborative filtering\"",
+    "((all:recommendation OR all:recommend) AND (all:sequential OR all:click OR all:session))",
+    "((all:llm OR all:generative OR all:\"large language model\") AND (all:recommender OR all:recsys) AND (all:user OR all:item))",
+  ].join(" OR "),
+  ")",
+  "ANDNOT cat:quant-ph",
+].join(" ");
+
+const API = `http://export.arxiv.org/api/query?search_query=${encodeURIComponent(
+  ARXIV_SEARCH_QUERY,
+)}&sortBy=submittedDate&sortOrder=descending&max_results=${MAX_FETCH}`;
 
 function asArray(x) {
   if (x == null) return [];
@@ -121,6 +145,26 @@ function loadExistingItems() {
   }
 }
 
+async function fetchArxivFeed() {
+  const maxAttempts = 5;
+  for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+    const res = await fetch(API);
+    const text = await res.text();
+    if (res.ok) return text;
+    const retryable = res.status === 429 || res.status === 503 || res.status === 502;
+    if (retryable && attempt < maxAttempts) {
+      const waitMs = 25_000 * attempt;
+      console.warn(
+        `arXiv HTTP ${res.status}，${waitMs / 1000}s 后重试 (${attempt}/${maxAttempts})…`,
+      );
+      await new Promise((r) => setTimeout(r, waitMs));
+      continue;
+    }
+    throw new Error(`arXiv HTTP ${res.status}: ${text.slice(0, 120)}`);
+  }
+  throw new Error("arXiv: unreachable");
+}
+
 async function main() {
   const existingItems = loadExistingItems();
   const byId = new Map();
@@ -129,9 +173,7 @@ async function main() {
   }
   const countBefore = byId.size;
 
-  const res = await fetch(API);
-  if (!res.ok) throw new Error(`arXiv HTTP ${res.status}`);
-  const xml = await res.text();
+  const xml = await fetchArxivFeed();
 
   const parser = new XMLParser({
     ignoreAttributes: false,
@@ -180,6 +222,23 @@ async function main() {
   }
 
   const merged = sortByPublishedDesc([...byId.values()]);
+
+  /** 历史条目或翻译失败时可能无 titleZh；写入前对仍缺译名的英文题补译 */
+  if (!skipTranslate) {
+    let t = 0;
+    for (const item of merged) {
+      if (item.titleZh && String(item.titleZh).trim()) continue;
+      if (looksMostlyChinese(item.title)) continue;
+      try {
+        const zh = await translateTitleEnToZh(item.title, t === 0 ? 0 : 400);
+        if (zh) item.titleZh = zh;
+      } catch (e) {
+        console.warn("translate backfill skip:", item.id, e?.message ?? e);
+      }
+      t += 1;
+    }
+  }
+
   const countAfter = merged.length;
 
   const payload = {
@@ -187,9 +246,9 @@ async function main() {
     query: API,
     source: "arXiv Atom API",
     mergePolicy:
-      "append-only：仅追加通过机构/顶会启发式的新篇，按 arXiv id 去重；历史条目保留。新篇按标题/摘要/作者及 DOI 等文本匹配知名企业与院校关键词，非完整 affiliation，会有漏检与误判。",
+      "append-only：仅追加通过机构/顶会启发式的新篇，按 arXiv id 去重；历史条目保留。新篇按标题/摘要/作者及 DOI 等文本匹配知名企业与院校关键词，非完整 affiliation，会有漏检与误判。arXiv 检索以推荐系统为核心（recommender 与 user|item 同现、recsys、协同过滤、序列表征，或 LLM/生成式 与 recsys+user|item 同现），排除 quant-ph。",
     disclaimer:
-      "本列表由程序自动抓取与合并，不保证与「生成式推荐」主题完全相关；筛选规则不能代替人工判断，请阅读原文并自行甄别。英文标题中文译名为机器翻译，仅供参考。",
+      "本列表由程序自动抓取与合并；方向以推荐系统为主、生成式推荐为子类；检索为关键词布尔组合，会有漏检与误检。机构筛选不能代替人工判断，请阅读原文并自行甄别。英文标题中文译名为机器翻译，仅供参考。",
     items: merged,
   };
 
