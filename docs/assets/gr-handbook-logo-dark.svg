@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="440" height="72" viewBox="0 0 440 72" role="img" aria-label="gr-handbook">
-  <rect x="1" y="1" width="54" height="54" rx="18" fill="#4a4743" stroke="#2d2a26" stroke-opacity="0.2" stroke-width="1"/>
-  <text x="28" y="36" text-anchor="middle" dominant-baseline="central" fill="#faf8f5" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="19" font-weight="600" letter-spacing="0.02em">GR</text>
-  <text x="72" y="28" fill="#1c1917" font-family="ui-sans-serif, system-ui, sans-serif" font-size="22" font-weight="700" letter-spacing="-0.02em">&#x751f;&#x6210;&#x5f0f;&#x63a8;&#x8350;-&#x624b;&#x518c;</text>
-  <text x="72" y="50" fill="#57534e" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" font-weight="600" letter-spacing="0.12em">GR-HANDBOOK</text>
-</svg>

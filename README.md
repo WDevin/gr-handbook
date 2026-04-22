@@ -1,24 +1,9 @@
 # 生成式推荐-手册（gr-handbook）
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/WDevin/gr-handbook/main/docs/assets/gr-handbook-logo.svg" alt="gr-handbook（生成式推荐-手册）" width="440" height="72">
-</p>
+**多页面在线手册** · 技术演进 · 方案对比 · 论文聚合
 
-<p align="center">
-  <strong>多页面在线手册</strong> · 技术演进 · 方案对比 · 论文聚合
-</p>
-
-<p align="center">
-  <a href="https://github.com/WDevin/gr-handbook/blob/main/package.json"><img src="https://img.shields.io/badge/Next.js-16-000000?style=for-the-badge&logo=next.js&logoColor=white" alt="Next.js 16"></a>
-  <a href="https://www.typescriptlang.org/"><img src="https://img.shields.io/badge/TypeScript-5-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript"></a>
-  <a href="https://tailwindcss.com/"><img src="https://img.shields.io/badge/Tailwind-4-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS"></a>
-  <a href="https://echarts.apache.org/"><img src="https://img.shields.io/badge/Apache%20ECharts-6-AA3440?style=for-the-badge" alt="Apache ECharts"></a>
-</p>
-
-<p align="center">
-  <a href="https://github.com/WDevin/gr-handbook/actions/workflows/update-papers.yml"><img src="https://github.com/WDevin/gr-handbook/actions/workflows/update-papers.yml/badge.svg" alt="Update arXiv papers"></a>
-  <a href="https://github.com/WDevin/gr-handbook"><img src="https://img.shields.io/github/stars/WDevin/gr-handbook?style=flat-square&logo=github&label=Stars" alt="GitHub stars"></a>
-</p>
+**技术栈**：Next.js 16 · TypeScript 5 · Tailwind CSS 4 · Apache ECharts 6  
+**自动化**：[每日 arXiv 论文数据](https://github.com/WDevin/gr-handbook/actions/workflows/update-papers.yml) · 仓库 [github.com/WDevin/gr-handbook](https://github.com/WDevin/gr-handbook)
 
 **gr-handbook（生成式推荐-手册）** 是一个用 [Next.js](https://nextjs.org/)（App Router）搭建的静态内容站点，面向算法与工程团队：用时间线、图表和可维护的 YAML/Markdown 把「生成式推荐」相关脉络讲清楚，并附带 arXiv 论文列表的抓取与展示。
 
