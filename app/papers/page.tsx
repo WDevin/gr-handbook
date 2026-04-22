@@ -1,4 +1,5 @@
 import { PageShell } from "@/components/page-shell";
+import { PapersRefreshButton } from "@/components/papers-refresh-button";
 import { loadPapersPayload } from "@/lib/load-content";
 import type { ArxivPaperItem } from "@/lib/types";
 import { CalendarDays, ExternalLink } from "lucide-react";
@@ -105,6 +106,7 @@ export default function PapersPage() {
     <PageShell
       title="每日论文与摘要"
       subtitle="数据由脚本调用 arXiv API 生成；摘要为官方 abstract 节选。英文题名下方中文为机翻辅助阅读，请以原文标题为准。"
+      headerActions={<PapersRefreshButton />}
     >
       {!payload ? (
         <p className="text-[var(--text-secondary)]">
