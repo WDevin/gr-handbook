@@ -1,10 +1,7 @@
 # 生成式推荐-手册（gr-handbook）
 
 <p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: light)" srcset="./docs/assets/gr-handbook-logo-dark.svg">
-    <img src="./docs/assets/gr-handbook-logo-light.svg" alt="gr-handbook — 生成式推荐-手册" width="440">
-  </picture>
+  <img src="https://raw.githubusercontent.com/WDevin/gr-handbook/main/docs/assets/gr-handbook-logo.svg" alt="gr-handbook（生成式推荐-手册）" width="440" height="72">
 </p>
 
 <p align="center">

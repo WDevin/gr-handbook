@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="440" height="72" viewBox="0 0 440 72" role="img" aria-label="gr-handbook">
+  <style type="text/css"><![CDATA[
+    .mark-bg { fill: #4a4743; stroke: #2d2a26; stroke-opacity: 0.2; stroke-width: 1; }
+    .mark-fg { fill: #faf8f5; }
+    .h-title { fill: #1c1917; }
+    .h-sub { fill: #57534e; }
+    @media (prefers-color-scheme: dark) {
+      .mark-bg { fill: #e7e5e1; stroke: #ffffff; stroke-opacity: 0.2; }
+      .mark-fg { fill: #292524; }
+      .h-title { fill: #fafaf9; }
+      .h-sub { fill: #a8a29e; }
+    }
+  ]]></style>
+  <rect class="mark-bg" x="1" y="1" width="54" height="54" rx="18"/>
+  <text class="mark-fg" x="28" y="36" text-anchor="middle" dominant-baseline="central" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="19" font-weight="600" letter-spacing="0.02em">GR</text>
+  <text class="h-title" x="72" y="28" font-family="ui-sans-serif, system-ui, sans-serif" font-size="22" font-weight="700" letter-spacing="-0.02em">&#x751f;&#x6210;&#x5f0f;&#x63a8;&#x8350;-&#x624b;&#x518c;</text>
+  <text class="h-sub" x="72" y="50" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" font-weight="600" letter-spacing="0.12em">GR-HANDBOOK</text>
+</svg>
