@@ -1,0 +1,264 @@
+solutions:
+  - id: gru4rec
+    name: GRU4Rec
+    nameEn: Session-based RNN Recommendations
+    org: Telefonica Research 等
+    orgType: 研究
+    tags: [序列, RNN, 会话推荐]
+    papers:
+      - title: Session-based Recommendations with Recurrent Neural Networks
+        url: https://arxiv.org/abs/1511.06939
+        year: 2015
+    scenarios:
+      - 匿名会话 / 短序列下一项预测
+      - 新闻、短视频等强时序场景的早期基线
+    details: |
+      将会话内交互建模为序列，用 GRU 预测下一物品。作为「序列生成式推荐」萌芽期代表，
+      它证明下一跳预测可以用生成式训练目标；局限在于长程依赖、并行度与超大词表上的效率。
+    metrics:
+      source: 论文在公开会话数据集上的报告
+      items:
+        - name: 主要指标
+          value: Recall / MRR 等
+          context: 不同数据集不可横向硬比
+
+  - id: sasrec
+    name: SASRec
+    org: 印第安纳大学 Bloomington 等
+    orgType: 学术界
+    tags: [Transformer, 自注意力, 序列]
+    papers:
+      - title: Self-Attentive Sequential Recommendation
+        url: https://arxiv.org/abs/1808.09781
+        year: 2018
+    scenarios:
+      - 长序列用户行为建模
+      - 工业排序链路中的序列编码骨干（常与多任务联合训练）
+    details: |
+      单向因果注意力结构，训练并行度显著优于 RNN。工业落地时常与特征交叉模块拼接：
+      序列 token 负责「时序」，DNN/DCN 负责「静态特征与交叉」。
+    metrics:
+      source: 论文公开表格（Amazon / Steam 等）
+      items:
+        - name: Top-K 排序指标
+          value: NDCG / HR 等
+          context: 见原文实验设置
+
+  - id: bert4rec
+    name: BERT4Rec
+    org: 阿里巴巴
+    orgType: 工业界 / 研究
+    tags: [双向, Cloze, 序列]
+    papers:
+      - title: "BERT4Rec: Sequential Recommendation with Bidirectional Encoder Representations from Transformer"
+        url: https://arxiv.org/abs/1904.06690
+        year: 2019
+    scenarios:
+      - 需要双向上下文的去噪与表征学习
+      - 与 MLM 式多任务结合的推荐预训练
+    details: |
+      将 Masked LM 迁移到物品序列：随机 mask 物品并预测。双向训练与线上一致性（因果 Serving）
+      之间存在工程 gap，常见做法是改造训练目标或增加对齐模块。
+    metrics:
+      source: 论文公开表格
+      items:
+        - name: 公开数据集指标
+          value: 见论文实验章节
+          context: 非生产 A/B
+
+  - id: tiger
+    name: TIGER（Transformer Index for Generative Recommenders）
+    org: Google DeepMind 等
+    orgType: 工业研究 / 生成式检索
+    tags: [语义ID, RQ-VAE, 生成式召回, NeurIPS2023]
+    papers:
+      - title: "Recommender Systems with Generative Retrieval（TIGER）"
+        url: https://arxiv.org/abs/2305.05065
+        year: 2023
+    scenarios:
+      - 超大规模候选集的紧凑索引与自回归检索
+      - 需要强泛化的新品 / 长尾内容分发
+    details: |
+      核心是用 RQ-VAE 等将物品映射为短语义 ID（离散 token 序列），再用 Transformer 自回归生成下一物品 ID。
+      相比「双塔 + ANN」，生成式检索把候选产生变为解码问题；工程侧需处理码本碰撞、约束解码与吞吐。
+      该路线被后续大量工业工作引用，是 GR「爆发期」的关键里程碑之一。
+    metrics:
+      source: 论文离线实验（Recall/NDCG 等，随数据集变化）
+      items:
+        - name: 离线排序/召回指标
+          value: 相对 SOTA 提升（见原文）
+          context: 需对齐数据协议与划分
+
+  - id: hstu
+    name: HSTU / Generative Recommenders（Meta）
+    org: Meta（Facebook Research）
+    orgType: 工业研究
+    tags: [序列骨干, ScalingLaw, 高基数流式数据, ICML2024]
+    papers:
+      - title: "Actions Speak Louder than Words: Trillion-Parameter Sequential Transducers for Generative Recommendations"
+        url: https://arxiv.org/abs/2402.17152
+        year: 2024
+    scenarios:
+      - 超长行为序列（千级 token）上的精排/序列建模
+      - 需要验证「算力缩放 → 效果持续提升」的主场景实验平台
+    details: |
+      提出 HSTU（Hierarchical Sequential Transduction Unit）以适配推荐场景的高基数、非平稳流式数据；
+      论文从算法与系统两侧讨论长序列效率（相对 FlashAttention2 等基线的描述见原文）。
+      公开材料称大规模线上实验取得显著核心指标提升——具体百分比以论文/官方博客为准，不宜跨业务硬比。
+    metrics:
+      source: 论文（离线 + 线上实验描述）
+      items:
+        - name: 线上核心指标
+          value: 论文报道的大幅度提升
+          context: 以 Meta 披露场景为准
+        - name: 离线 Top-K
+          value: NDCG/HR 等
+          context: 公开数据集与内部数据混合报告
+
+  - id: onerec
+    name: OneRec（端到端生成式推荐，快手）
+    org: 快手（Kuaishou）
+    orgType: 工业落地
+    tags: [端到端, 召排一体, MoE, 偏好对齐]
+    papers:
+      - title: "OneRec: Towards End-to-End Generative Recommendation（示例主文）"
+        url: https://arxiv.org/abs/2506.13695
+        year: 2025
+      - title: "OneRec: Unifying Retrieve and Rank with Generative Models（相关报告）"
+        url: https://arxiv.org/abs/2502.18965
+        year: 2025
+    scenarios:
+      - 希望减少级联误差、统一优化召回+排序的主场景
+      - 具备强工程与算力团队，能承受迁移成本
+    details: |
+      公开技术报告描述 Encoder–Decoder 结构、稀疏 MoE 扩展与偏好对齐（如 DPO 思路）等，
+      并给出主站流量承接比例、时长类指标与成本数据的**数量级描述**。
+      这是「ID-as-Token / 端到端生成」路线中最受关注的工业案例之一；落地需配套约束解码、异常兜底与多目标对齐。
+    metrics:
+      source: 快手公开论文/技术报告
+      items:
+        - name: 主站流量
+          value: 报告中的承接 QPS 比例（见原文）
+          context: 随版本迭代变化
+        - name: 体验指标
+          value: App 停留时长等正向描述
+          context: 以报告中的 A/B 为准
+
+  - id: rankmixer
+    name: RankMixer（工业排序规模化，字节）
+    org: 字节跳动（ByteDance）
+    orgType: 工业研究
+    tags: [精排, TokenMixing, MoE, MFU]
+    papers:
+      - title: "RankMixer: Scaling Up Ranking Models in Industrial Recommenders"
+        url: https://arxiv.org/abs/2507.15551
+        year: 2025
+    scenarios:
+      - 超大规模特征交叉 + 严格延迟 SLA 的排序/预估
+      - 需要在「参数规模↑」同时控制推理成本与 MFU
+    details: |
+      论文强调以硬件感知结构替换传统自注意力中的部分计算：多头 token mixing + per-token FFN，
+      并提供 Sparse-MoE 变体与动态路由，目标是在工业推荐/广告双场景里**把大排序模型真正跑满算力**。
+      OneTrans 摘要中亦将 RankMixer 作为「特征交互规模化」的代表工作之一。
+    metrics:
+      source: arXiv 论文（含线上实验描述）
+      items:
+        - name: MFU
+          value: 论文报告显著提升（相对基线）
+          context: 以原文图表为准
+        - name: 线上时长/活跃
+          value: 论文给出的百分比提升描述
+          context: 不同产品线可能不同
+
+  - id: onetrans
+    name: OneTrans（序列 + 特征交互统一 Transformer）
+    org: 字节跳动（论文作者机构以 arXiv 为准）
+    orgType: 工业研究
+    tags: [统一骨干, KV缓存, 因果注意力, GMV]
+    papers:
+      - title: "OneTrans: Unified Feature Interaction and Sequence Modeling with One Transformer in Industrial Recommender"
+        url: https://arxiv.org/abs/2510.26104
+        year: 2025
+    scenarios:
+      - 行为序列与海量稀疏/稠密特征并存的主排序模型
+      - 希望避免「序列模块 + 交叉模块」分裂优化
+    details: |
+      工业交流里偶见将 OneTrans 口语写成「OnTrans」，引用请以 arXiv 标题为准。
+      将序列与非序列特征统一 token 化，堆叠共享 Transformer；对非序列 token 使用更强参数化，
+      并配合因果注意力 + 跨请求 KV 缓存，降低训练/推理重复计算。
+      论文报告工业数据上的规模化收益，并给出 **每用户 GMV** 方向的线上 A/B 结论描述。
+    metrics:
+      source: arXiv 论文
+      items:
+        - name: 线上 GMV
+          value: 论文称约 5.68% lift（per-user GMV）
+          context: 以原文实验设置为准
+        - name: 离线
+          value: 相对强基线提升
+          context: 见论文表格
+
+  - id: p5
+    name: P5（Recommendation as Language Processing）
+    org: Rutgers 等
+    orgType: 学术界
+    tags: [大模型, 提示学习, 多任务]
+    papers:
+      - title: "Recommendation as Language Processing (RLP): A Unified Pretrain, Personalized Prompt & Predict Paradigm (P5)"
+        url: https://arxiv.org/abs/2203.13366
+        year: 2022
+    scenarios:
+      - 研究原型：多任务统一（评分、解释、序列等）
+      - 验证文本化用户/物品元数据的可行性
+    details: |
+      将不同任务写成模板，用 T5 类模型统一训练。优势在灵活组合；挑战是推理成本、延迟与商品 ID 文本化。
+      与 TIGER「语义 ID」路线相比，P5 更偏 NLP 化任务定义，工业大规模目录仍需额外系统设计。
+    metrics:
+      source: 论文多数据集结果
+      items:
+        - name: 任务指标
+          value: 随任务类型变化
+          context: 研究向
+
+  - id: fusion-gen
+    name: 融合式生成（LUM / HLLM / GenRank 等）
+    org: 阿里、字节、小红书等（公开分享）
+    orgType: 工业趋势
+    tags: [模块增强, 渐进替换, 风险可控]
+    papers:
+      - title: "以各公司技术博客 / arXiv 为准（关键词: Generative Rank、LLM rerank）"
+        url: https://arxiv.org/search/?query=generative+ranking+recommendation&searchtype=all
+        year: 2024
+    scenarios:
+      - 绝大多数中大型业务的**首选落地形态**：保留漏斗，用生成式增强其中一环
+      - 需要快速 A/B、强规则兜底与可解释审计
+    details: |
+      典型做法：生成式检索替换部分召回；或用序列生成式模型替换/并联精排；LLM 参与重排与解释。
+      相比端到端替换，融合式路径更易控制延迟与稳定性，也是 GR-summary 中强调的「中小平台默认策略」。
+    metrics:
+      source: 公开案例不一
+      items:
+        - name: 线上指标
+          value: 依业务披露
+          context: 不宜跨公司对比绝对值
+
+  - id: llm-side
+    name: LLM 侧路：重排、解释、对话导购
+    org: 全行业
+    orgType: 范式
+    tags: [LLM, 重排, 工具调用, 合规]
+    papers:
+      - title: LLM4Rec 综述/检索（示例入口）
+        url: https://arxiv.org/search/?query=large+language+model+recommendation&searchtype=all
+        year: 2023
+    scenarios:
+      - Top-K 候选的重排理由、列表整体优化（list-wise）
+      - 对话式购物助手、生成式素材与卖点
+    details: |
+      将 LLM 放在漏斗后端或展示层：输入用户摘要 + 候选卡片特征，输出排序、对比或解释；
+      常配合检索工具（RAG）与强约束解码。优点是自然语言交互与可解释潜力；难点是幻觉、延迟与合规审核。
+    metrics:
+      source: 业务保密性强
+      items:
+        - name: 线上
+          value: 多数不公开
+          context: 以各公司披露为准

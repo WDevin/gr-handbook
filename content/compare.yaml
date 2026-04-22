@@ -1,0 +1,123 @@
+# 分值 1–5 为示意性标注，用于雷达/平行坐标展示相对优劣势；非严格论文量化。
+axes:
+  - id: train_cost
+    label: 训练算力/工程复杂度
+    max: 5
+    description: 5 表示训练与系统工程成本更高
+  - id: infer_latency
+    label: 线上延迟压力
+    max: 5
+    description: 5 表示对低延迟 Serving 更不友好（同等团队预算下）
+  - id: cold_tail
+    label: 冷启动/长尾
+    max: 5
+    description: 5 表示更依赖语义与生成式泛化
+  - id: arch_unify
+    label: 架构统一度
+    max: 5
+    description: 5 表示更接近「一模型多段」或统一骨干
+  - id: controllable
+    label: 可控/可解释
+    max: 5
+    description: 规则、审计、约束解码的可操作性
+  - id: industrial
+    label: 工业公开案例密度
+    max: 5
+    description: 公开论文/报告中的大规模线上证据丰富程度（主观）
+
+rows:
+  - id: gru4rec
+    name: GRU4Rec
+    shortLabel: GRU4Rec
+    values:
+      train_cost: 2
+      infer_latency: 2
+      cold_tail: 2
+      arch_unify: 1
+      controllable: 3
+      industrial: 3
+    notes: 经典序列基线，易部署
+
+  - id: sasrec
+    name: SASRec
+    shortLabel: SASRec
+    values:
+      train_cost: 3
+      infer_latency: 2
+      cold_tail: 3
+      arch_unify: 2
+      controllable: 3
+      industrial: 4
+    notes: 工业序列骨干事实标准之一
+
+  - id: tiger
+    name: TIGER（生成式检索）
+    shortLabel: TIGER
+    values:
+      train_cost: 4
+      infer_latency: 3
+      cold_tail: 4
+      arch_unify: 3
+      controllable: 2
+      industrial: 4
+    notes: 语义 ID + 自回归检索代表
+
+  - id: hstu
+    name: HSTU / GR（Meta）
+    shortLabel: HSTU
+    values:
+      train_cost: 5
+      infer_latency: 3
+      cold_tail: 4
+      arch_unify: 4
+      controllable: 2
+      industrial: 5
+    notes: 大规模序列骨干 + 公开线上描述
+
+  - id: onerec
+    name: OneRec（端到端）
+    shortLabel: OneRec
+    values:
+      train_cost: 5
+      infer_latency: 5
+      cold_tail: 4
+      arch_unify: 5
+      controllable: 2
+      industrial: 4
+    notes: 召排一体激进路线，工程门槛最高
+
+  - id: rankmixer
+    name: RankMixer（大排序）
+    shortLabel: RankMixer
+    values:
+      train_cost: 4
+      infer_latency: 3
+      cold_tail: 3
+      arch_unify: 3
+      controllable: 3
+      industrial: 4
+    notes: 特征交叉规模化 + MoE，偏精排/预估
+
+  - id: onetrans
+    name: OneTrans（统一 Transformer）
+    shortLabel: OneTrans
+    values:
+      train_cost: 4
+      infer_latency: 3
+      cold_tail: 3
+      arch_unify: 4
+      controllable: 3
+      industrial: 4
+    notes: 序列+特征交互统一 + KV 缓存思路
+
+  - id: llm_side
+    name: LLM 侧路（重排/解释）
+    shortLabel: LLM侧路
+    values:
+      train_cost: 4
+      infer_latency: 5
+      cold_tail: 4
+      arch_unify: 2
+      controllable: 4
+      industrial: 5
+    notes: 落地快、合规与延迟需专项治理

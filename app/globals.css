@@ -1,26 +1,152 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg-page: #f7f5f2;
+  --bg-surface: #fffcf7;
+  --bg-elevated: #ffffff;
+  --border-subtle: rgba(45, 55, 72, 0.12);
+  --text-primary: #1a202c;
+  --text-secondary: #4a5568;
+  --text-muted: #718096;
+  --accent: #2c7a7b;
+  --accent-hover: #285e61;
+  --accent-muted: rgba(44, 122, 123, 0.12);
+  --link: #2b6cb0;
+  --link-hover: #2c5282;
+  --chart-1: #2c7a7b;
+  --chart-2: #3182ce;
+  --chart-3: #805ad5;
+  --chart-4: #dd6b20;
+  --chart-5: #d53f8c;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --shadow-soft: 0 1px 2px rgba(26, 32, 44, 0.06),
+    0 4px 24px rgba(26, 32, 44, 0.06);
+  /* 顶栏 GR 徽标：暖灰底，贴近纸色页面 */
+  --logo-mark-bg: #4a4743;
+  --logo-mark-fg: #faf8f5;
+  --logo-mark-ring: rgba(255, 252, 247, 0.35);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-bg-page: var(--bg-page);
+  --color-bg-surface: var(--bg-surface);
+  --color-bg-elevated: var(--bg-elevated);
+  --color-border-subtle: var(--border-subtle);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-link: var(--link);
+  --font-sans: var(--font-noto-sc), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --logo-mark-bg: #3d3a36;
+    --logo-mark-fg: #f5f2eb;
+    --logo-mark-ring: rgba(255, 255, 255, 0.12);
+    --bg-page: #0f1419;
+    --bg-surface: #161d27;
+    --bg-elevated: #1c2633;
+    --border-subtle: rgba(255, 255, 255, 0.08);
+    --text-primary: #f1f5f9;
+    --text-secondary: #cbd5e1;
+    --text-muted: #94a3b8;
+    --accent: #5eead4;
+    --accent-hover: #99f6e4;
+    --accent-muted: rgba(94, 234, 212, 0.15);
+    --link: #7dd3fc;
+    --link-hover: #bae6fd;
+    --shadow-soft: 0 1px 2px rgba(0, 0, 0, 0.2),
+      0 8px 32px rgba(0, 0, 0, 0.35);
   }
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+}
+
+/* Prose-like article styling for markdown */
+.article-md h1 {
+  font-size: 1.875rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.article-md h2 {
+  font-size: 1.375rem;
+  font-weight: 600;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  color: var(--text-primary);
+}
+
+.article-md h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.article-md p {
+  margin-bottom: 1rem;
+  line-height: 1.75;
+  color: var(--text-secondary);
+}
+
+.article-md ul,
+.article-md ol {
+  margin-bottom: 1rem;
+  padding-left: 1.25rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+}
+
+.article-md li {
+  margin-bottom: 0.35rem;
+}
+
+.article-md a {
+  color: var(--link);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.article-md a:hover {
+  color: var(--link-hover);
+}
+
+.article-md blockquote {
+  border-left: 3px solid var(--accent);
+  padding-left: 1rem;
+  margin: 1rem 0;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.article-md code {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  background: var(--accent-muted);
+  padding: 0.15em 0.4em;
+  border-radius: var(--radius-sm);
+}
+
+.article-md hr {
+  border: none;
+  border-top: 1px solid var(--border-subtle);
+  margin: 2rem 0;
 }
