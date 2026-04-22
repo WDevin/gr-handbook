@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-04-22T02:46:15.690Z",
+  "fetchedAt": "2026-04-22T07:23:53.741Z",
   "query": "http://export.arxiv.org/api/query?search_query=all:recommendation+AND+all:generative&sortBy=submittedDate&sortOrder=descending&max_results=25",
   "source": "arXiv Atom API",
   "disclaimer": "本列表由程序自动抓取，不保证与「生成式推荐」主题完全相关；请阅读原文并自行甄别。英文标题中文译名为机器翻译，仅供参考。",
