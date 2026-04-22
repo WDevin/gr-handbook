@@ -69,6 +69,8 @@ export type PapersPayload = {
   fetchedAt: string;
   query: string;
   source: string;
+  /** 合并与筛选策略说明（由抓取脚本写入） */
+  mergePolicy?: string;
   disclaimer: string;
   items: ArxivPaperItem[];
 };
