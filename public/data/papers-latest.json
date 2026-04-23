@@ -1,10 +1,29 @@
 {
-  "fetchedAt": "2026-04-22T12:51:32.839Z",
+  "fetchedAt": "2026-04-23T07:26:13.298Z",
   "query": "http://export.arxiv.org/api/query?search_query=(%20(all%3Arecommender%20AND%20(all%3Auser%20OR%20all%3Aitem))%20OR%20all%3Arecsys%20OR%20all%3A%22collaborative%20filtering%22%20OR%20((all%3Arecommendation%20OR%20all%3Arecommend)%20AND%20(all%3Asequential%20OR%20all%3Aclick%20OR%20all%3Asession))%20OR%20((all%3Allm%20OR%20all%3Agenerative%20OR%20all%3A%22large%20language%20model%22)%20AND%20(all%3Arecommender%20OR%20all%3Arecsys)%20AND%20(all%3Auser%20OR%20all%3Aitem))%20)%20ANDNOT%20cat%3Aquant-ph&sortBy=submittedDate&sortOrder=descending&max_results=80",
   "source": "arXiv Atom API",
   "mergePolicy": "append-only：仅追加通过机构/顶会启发式的新篇，按 arXiv id 去重；历史条目保留。新篇按标题/摘要/作者及 DOI 等文本匹配知名企业与院校关键词，非完整 affiliation，会有漏检与误判。arXiv 检索以推荐系统为核心（recommender 与 user|item 同现、recsys、协同过滤、序列表征，或 LLM/生成式 与 recsys+user|item 同现），排除 quant-ph。",
   "disclaimer": "本列表由程序自动抓取与合并；方向以推荐系统为主、生成式推荐为子类；检索为关键词布尔组合，会有漏检与误检。机构筛选不能代替人工判断，请阅读原文并自行甄别。英文标题中文译名为机器翻译，仅供参考。",
   "items": [
+    {
+      "id": "2604.20749",
+      "title": "Where and What: Reasoning Dynamic and Implicit Preferences in Situated Conversational Recommendation",
+      "authors": [
+        "Dongding Lin",
+        "Jian Wang",
+        "Yongqi Li",
+        "Wenjie Li"
+      ],
+      "published": "2026-04-22",
+      "updated": "2026-04-22",
+      "summary": "Situated conversational recommendation (SCR), which utilizes visual scenes grounded in specific environments and natural language dialogue to deliver contextually appropriate recommendations, has emerged as a promising research direction due to its close alignment with real-world scenarios. Compared to traditional recommendations, SCR requires a deeper understanding of dynamic and implicit user preferences, as the surrounding scene often influences users' underlying interests, while both may evolve across conversations. This complexity significantly impacts the timing and relevance of recommendations. To address this, we propose situated preference reasoning (SiPeR), a novel framework that integrates two core mechanisms: (1) Scene transition estimation, which estimates whether the current scene satisfies user needs, and guides the user toward a more suitable scene when necessary; and (2) Bayesian inverse inference, which leverages the likelihood of multimodal large language models (MLLMs) to predict user preferences about candidate items within the scene. Extensive experiments on two representative benchmarks demonstrate SiPeR's superiority in both recommendation accuracy and response generation quality. The code and data are available at https://github.com/DongdingLin/SiPeR.",
+      "linkAbs": "http://arxiv.org/abs/2604.20749v1",
+      "linkPdf": "https://arxiv.org/pdf/2604.20749v1",
+      "categories": [
+        "cs.AI"
+      ],
+      "titleZh": "地点和内容：在情境会话推荐中推理动态和隐式偏好"
+    },
     {
       "id": "2604.19663",
       "title": "From Top-1 to Top-K: A Reproducibility Study and Benchmarking of Counterfactual Explanations for Recommender Systems",
@@ -29,6 +48,26 @@
         "cs.LG"
       ],
       "titleZh": "从Top-1到Top-K ：推荐系统的反事实解释的重复性研究和基准测试"
+    },
+    {
+      "id": "2604.20006",
+      "title": "From Recall to Forgetting: Benchmarking Long-Term Memory for Personalized Agents",
+      "authors": [
+        "Md Nayem Uddin",
+        "Kumar Shubham",
+        "Eduardo Blanco",
+        "Chitta Baral",
+        "Gengyu Wang"
+      ],
+      "published": "2026-04-21",
+      "updated": "2026-04-21",
+      "summary": "Personalized agents that interact with users over long periods must maintain persistent memory across sessions and update it as circumstances change. However, existing benchmarks predominantly frame long-term memory evaluation as fact retrieval from past conversations, providing limited insight into agents' ability to consolidate memory over time or handle frequent knowledge updates. We introduce Memora, a long-term memory benchmark spanning weeks to months long user conversations. The benchmark evaluates three memory-grounded tasks: remembering, reasoning, and recommending. To ensure data quality, we employ automated memory-grounding checks and human evaluation. We further introduce Forgetting-Aware Memory Accuracy (FAMA), a metric that penalizes reliance on obsolete or invalidated memory when evaluating long-term memory. Evaluations of four LLMs and six memory agents reveal frequent reuse of invalid memories and failures to reconcile evolving memories. Memory agents offer marginal improvements, exposing shortcomings in long-term memory for personalized agents.",
+      "linkAbs": "http://arxiv.org/abs/2604.20006v1",
+      "linkPdf": "https://arxiv.org/pdf/2604.20006v1",
+      "categories": [
+        "cs.CL"
+      ],
+      "titleZh": "从召回到遗忘：为个性化客服代表制定长期记忆基准"
     },
     {
       "id": "2604.18420",
