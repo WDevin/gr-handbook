@@ -1,10 +1,149 @@
 {
-  "fetchedAt": "2026-04-27T08:10:03.298Z",
+  "fetchedAt": "2026-04-28T08:12:12.164Z",
   "query": "http://export.arxiv.org/api/query?search_query=(%20(all%3Arecommender%20AND%20(all%3Auser%20OR%20all%3Aitem))%20OR%20all%3Arecsys%20OR%20all%3A%22collaborative%20filtering%22%20OR%20((all%3Arecommendation%20OR%20all%3Arecommend)%20AND%20(all%3Asequential%20OR%20all%3Aclick%20OR%20all%3Asession))%20OR%20((all%3Allm%20OR%20all%3Agenerative%20OR%20all%3A%22large%20language%20model%22)%20AND%20(all%3Arecommender%20OR%20all%3Arecsys)%20AND%20(all%3Auser%20OR%20all%3Aitem))%20)%20ANDNOT%20cat%3Aquant-ph&sortBy=submittedDate&sortOrder=descending&max_results=80",
   "source": "arXiv Atom API",
   "mergePolicy": "append-only：仅追加通过机构/顶会启发式的新篇，按 arXiv id 去重；历史条目保留。新篇按标题/摘要/作者及 DOI 等文本匹配知名企业与院校关键词，非完整 affiliation，会有漏检与误判。arXiv 检索以推荐系统为核心（recommender 与 user|item 同现、recsys、协同过滤、序列表征，或 LLM/生成式 与 recsys+user|item 同现），排除 quant-ph。",
   "disclaimer": "本列表由程序自动抓取与合并；方向以推荐系统为主、生成式推荐为子类；检索为关键词布尔组合，会有漏检与误检。机构筛选不能代替人工判断，请阅读原文并自行甄别。英文标题中文译名为机器翻译，仅供参考。",
   "items": [
+    {
+      "id": "2604.24548",
+      "title": "SpotVista: Availability-Aware Recommendation System for Reliable and Cost-Efficient Multi-Node Spot Instances",
+      "authors": [
+        "Taeyoon Kim",
+        "Kyumin Kim",
+        "Kyunghwan Kim",
+        "Hayoung Kim",
+        "Seungwoo Jeong",
+        "Moohyun Song",
+        "Kyungyong Lee"
+      ],
+      "published": "2026-04-27",
+      "updated": "2026-04-27",
+      "summary": "Cloud vendors offer discounted spot instances to maximize surplus resource utilization, but these instances are subject to the risk of sudden interruption. Traditional pricing datasets have been employed to predict this risk, yet recent policy changes by cloud vendors have diminished their effectiveness. To promote spot instance usage, public cloud vendors provide instant availability datasets to help users mitigate interruption risks. While existing research utilizing this data has proposed methods to reduce interruptions, these studies have primarily focused on single-node instances, overlooking the stability of multi-node environments widely adopted for modern cloud workloads. This paper proposes SpotVista, a system that recommends a resource pool of reliable and cost-efficient multi-node spot instances by leveraging various publicly available datasets. To achieve this, SpotVista collects a large-scale multi-node availability dataset while overcoming significant query limitations. Through a thorough analysis of multi-node spot instance availability behavior, SpotVista establishes a methodology for recommending cost-efficient and reliable multi-node configurations. To evaluate how effectively the proposed methodology reflects multi-node availability and cost efficiency, extensive real-world interruption experiments were conducted. The results demonstrate that SpotVista outperforms the state-of-the-art work, SpotVerse, achieving 81.28% greater availability and 2.84\\% more cost savings in a multi-region setup. When compared to a publicly available service, AWS SpotFleet, SpotVista provides 21.6\\% higher stability and 26.3% greater cost savings.",
+      "linkAbs": "http://arxiv.org/abs/2604.24548v1",
+      "linkPdf": "https://arxiv.org/pdf/2604.24548v1",
+      "categories": [
+        "cs.DC"
+      ],
+      "titleZh": "SpotVista ：可靠且经济高效的多节点Spot实例的可用性感知推荐系统"
+    },
+    {
+      "id": "2604.24405",
+      "title": "How Personal Characteristics Shape User Exploration of Diverse Movie Recommendations with a LLM-Based Multi-Agent System",
+      "authors": [
+        "Yufan Zhou",
+        "Yirui Huang",
+        "Zhao Wang",
+        "Yucheng Jin"
+      ],
+      "published": "2026-04-27",
+      "updated": "2026-04-27",
+      "summary": "Diversity is an important evaluation criterion for recommender systems beyond accuracy, yet users differ in their willingness to engage with novel and diverse content. In this work, we investigate how a Large Language Model (LLM)-based multi-agent system supports users' exploration of diverse recommendations, and how individual characteristics shape user experiences. We conducted a between-subjects user study (N = 100) comparing a single-agent system (baseline) with a multi-agent system for movie recommendations. We measured Perceived Accuracy, diversity, novelty, and overall rating, and examined the influence of personal characteristics, including personality traits, demographics, GenAI recommendation experience, and GenAI skepticism. Results show that the multi-agent system significantly increases Perceived Novelty and Shannon Diversity. Conscientiousness is positively associated with Perceived Accuracy and diversity, whereas extraversion is negatively associated with Perceived Diversity. Prior experience with GenAI-based recommendations is positively associated with Shannon Diversity, while skepticism toward GenAI is negatively associated with it. We also observe significant interaction effects between system design and user characteristics. These findings highlight the importance of personality-aware conversational recommender systems and caution against one-size-fits-all multi-agent designs.",
+      "linkAbs": "http://arxiv.org/abs/2604.24405v1",
+      "linkPdf": "https://arxiv.org/pdf/2604.24405v1",
+      "categories": [
+        "cs.HC"
+      ],
+      "titleZh": "个人特征如何通过基于LLM的多代理系统塑造用户对多元化电影推荐的探索"
+    },
+    {
+      "id": "2604.23753",
+      "title": "Modeling Induced Pleasure through Cognitive Appraisal Prediction via Multimodal Fusion",
+      "authors": [
+        "Nastaran Dab",
+        "Raziyeh Zall",
+        "Mohammadreza Kangavari"
+      ],
+      "published": "2026-04-26",
+      "updated": "2026-04-26",
+      "summary": "Multimodal affective computing analyzes user-generated social media content to predict emotional states. However, a critical gap remains in understanding how visual content shapes cognitive interpretations and elicits specific affective experiences such as pleasure. This study introduces a novel computational model to infer video-induced pleasure via cognitive appraisal variables. The proposed model addresses four challenges: (1) noisy and inconsistent human labels, (2) the semantic gap between \"positive emotions\" and \"pleasure,\" (3) the scarcity of pleasure-specific datasets, and (4) the limited interpretability of existing black-box fusion methods. Our approach integrates data-driven and cognitive theory-driven methods, using cognitive appraisal theory and a fuzzy model within an innovative framework. The model employs transformer-based architectures and attention mechanisms for fine-grained multimodal feature extraction and interpretable fusion to capture both inter- and intra-modal dynamics associated with pleasure. This enables the prediction of underlying appraisal variables, thereby bridging the semantic gap and enhancing model explainability beyond conventional statistical associations. Experimental results validate the efficacy of the proposed method in detecting video-induced pleasure, achieving a peak accuracy of 0.6624 in predicting pleasure levels. These findings highlight promising implications for affective content recommendation, intelligent media creation, and advancing our understanding of how digital media influences human emotions.",
+      "linkAbs": "http://arxiv.org/abs/2604.23753v1",
+      "linkPdf": "https://arxiv.org/pdf/2604.23753v1",
+      "categories": [
+        "cs.AI",
+        "cs.HC",
+        "cs.LG"
+      ],
+      "titleZh": "多模态融合认知评价预测快感建模"
+    },
+    {
+      "id": "2604.23640",
+      "title": "Prompt-Unknown Promotion Attacks against LLM-based Sequential Recommender Systems",
+      "authors": [
+        "Yuchuan Zhao",
+        "Tong Chen",
+        "Junliang Yu",
+        "Zongwei Wang",
+        "Lizhen Cui",
+        "Hongzhi Yin"
+      ],
+      "published": "2026-04-26",
+      "updated": "2026-04-26",
+      "summary": "Large language model-powered sequential recommender systems (LLM-SRSs) have recently demonstrated remarkable performance, enabling recommendations through prompt-driven inference over user interaction sequences. However, this paradigm also introduces new security vulnerabilities, particularly text-level manipulations, rendering them appealing targets for promotion attacks that purposely boost the ranking of specific target items. Although such security risks have been receiving increasing attention, existing studies typically rely on an unrealistic assumption of access to either the victim model or prompt to unveil attack mechanisms. In this work, we investigate the item promotion attack in LLM-SRSs under a more realistic setting where both the system prompt and victim model are unknown to the attacker, and propose a Prompt-Unknown Dual-poisoning Attack (PUDA) framework. To simulate attacks under this full black-box setting, we introduce an LLM-based evolutionary refinement strategy that infers discrete system prompts, enabling the training of an effective surrogate model that mimics the behaviors of the victim model. Leveraging the distilled prompt and surrogate model, we devise a promotion attack that adversarially revises target item texts under semantic constraints, which is further complemented by the highly plausible, surrogate-generated poisoning sequences to enable cost-effective target item promotion. Extensive experiments on real-world datasets demonstrate that PUDA consistently outperforms state-of-the-art competitors in boosting the exposure of unpopular target items. Our findings reveal critical security risks in modern LLM-SRSs even when both prompts and models are protected, and highlight the need for more robust defensive means.",
+      "linkAbs": "http://arxiv.org/abs/2604.23640v1",
+      "linkPdf": "https://arxiv.org/pdf/2604.23640v1",
+      "categories": [
+        "cs.IR"
+      ],
+      "titleZh": "针对基于LLM的顺序推荐系统的Prompt-Unknown促销攻击"
+    },
+    {
+      "id": "2604.23568",
+      "title": "Green-Red Watermarking for Recommender Systems",
+      "authors": [
+        "Lei Zhou",
+        "Min Gao",
+        "Zongwei Wang",
+        "Yibing Bai",
+        "Wentao Li"
+      ],
+      "published": "2026-04-26",
+      "updated": "2026-04-26",
+      "summary": "The widespread open-sourcing of advanced recommendation algorithms and the rising threat of model extraction attacks have made safeguarding the intellectual property of recommender systems an imperative task. While watermarking serves as a potent defense, existing methods primarily rely on forcing models to memorize pre-defined interaction patterns. Such memorization-based approaches often require excessive synthetic data injection and are vulnerable to removal attacks due to their detectable statistical deviations from natural user behavior. To address these limitations, we propose GREW, a novel Green-REd Watermarking framework for recommender systems. GREW leverages a secret key to partition the item space into \"green\" items for soft promotion and \"red\" items as anchors, thereby shifting the paradigm from fragile memorization to a stealthy, key-controlled output bias. By integrating watermark signals directly into the intrinsic ranking process, GREW employs three recommendation-tailored modules: (1) Semantic-Consistent Hashing, which utilizes the secret key to cluster green items for performance-aware stealthiness; (2) Decision-Aligned Masking, which confines signal injection to the competitive item subset to preserve ranking logic; and (3) Confidence-Aware Scaling, which dynamically modulates injection intensity based on model uncertainty. Ownership verification is performed via statistical hypothesis testing on aggregated black-box outputs, enabled by the keyed re-partitioning of the item space. Experiments on multiple base models demonstrate that GREW achieves strong ownership verification and robustness against extraction attacks compared to existing baselines while requiring no data injection. Our code is available at https://github.com/Loche2/GREW.",
+      "linkAbs": "http://arxiv.org/abs/2604.23568v1",
+      "linkPdf": "https://arxiv.org/pdf/2604.23568v1",
+      "categories": [
+        "cs.IR",
+        "cs.CR"
+      ],
+      "titleZh": "推荐系统绿红水印"
+    },
+    {
+      "id": "2604.23088",
+      "title": "Code Broker: A Multi-Agent System for Automated Code Quality Assessment",
+      "authors": [
+        "Samer Attrah"
+      ],
+      "published": "2026-04-25",
+      "updated": "2026-04-25",
+      "summary": "We present Code Broker, a multi agent system built with Google Agent Development Kit ADK that analyses Python code from files, local directories, or GitHub repositories and generates actionable quality assessment reports. The system employs a hierarchical five agents architecture in which a root orchestrator coordinates a sequential pipeline agent, which in turn dispatches three specialised agents in parallel a Correctness Assessor, a Style Assessor, and a Description Generator before synthesising findings through an Improvement Recommender. Reports score four dimensions correctness, security, style, and maintainability and are rendered in both Markdown and HTML. Code Broker combines LLM based reasoning with deterministic static-analysis signals from Pylint, uses asynchronous execution with retry logic to improve robustness, and explores lightweight session memory for retaining and querying prior assessment context. We position the paper as a technical report on system design and prompt or tool orchestration, and present a preliminary qualitative evaluation on representative Python codebases. The results suggest that parallel specialised agents produce readable, developer oriented feedback, while also highlighting current limitations in evaluation depth, security tooling, large repository handling, and the current use of only in memory persistence. All code and reproducibility materials are available at: https://github.com/Samir-atra/agents_intensive_dev.",
+      "linkAbs": "http://arxiv.org/abs/2604.23088v1",
+      "linkPdf": "https://arxiv.org/pdf/2604.23088v1",
+      "categories": [
+        "cs.SE",
+        "cs.AI",
+        "cs.CL",
+        "cs.PL"
+      ],
+      "titleZh": "Code Broker ：用于自动代码质量评估的多代理系统"
+    },
+    {
+      "id": "2604.23077",
+      "title": "Adopting State-of-the-Art Pretrained Audio Representations for Music Recommender Systems",
+      "authors": [
+        "Yan-Martin Tamm",
+        "Anna Aljanaki"
+      ],
+      "published": "2026-04-25",
+      "updated": "2026-04-25",
+      "summary": "Over the years, Music Information Retrieval (MIR) research community has released various models pretrained on large amounts of music data. Transfer learning showcases the proven effectiveness of pretrained backend models for a broad spectrum of downstream tasks, including auto-tagging and genre classification. However, MIR papers generally do not explore the efficiency of pretrained models for Music Recommender Systems (MRS). In addition, the Recommender Systems community tends to favour traditional end-to-end neural network training. Our research addresses this gap and evaluates the performance of nine pretrained backend models (MusicFM, Music2Vec, MERT, EncodecMAE, Jukebox, MusiCNN, MULE, MuQ and MuQ-MuLan) in the context of MRS. We assess them using five recommendation approaches: K-Nearest Neighbours (KNN), Shallow Neural Network, Contrastive Multi-Modal projection, a Hybrid model, and BERT4Rec both for the hot and cold-start scenarios. Our findings suggest that pretrained audio representations exhibit significant performance disparity between traditional MIR tasks and both hot and cold music recommendations, indicating that valuable aspects of musical information captured by backend models may differ depending on the task. This study establishes a foundation for further exploration of pretrained audio representations to enhance music recommendation systems.",
+      "linkAbs": "http://arxiv.org/abs/2604.23077v1",
+      "linkPdf": "https://arxiv.org/pdf/2604.23077v1",
+      "categories": [
+        "cs.IR"
+      ],
+      "titleZh": "为音乐推荐系统采用最先进的预训练音频表示"
+    },
     {
       "id": "2604.22195",
       "title": "Rethinking Semantic Collaborative Integration: Why Alignment Is Not Enough",
