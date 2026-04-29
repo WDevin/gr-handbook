@@ -1,10 +1,100 @@
 {
-  "fetchedAt": "2026-04-28T08:12:12.164Z",
+  "fetchedAt": "2026-04-29T08:05:06.721Z",
   "query": "http://export.arxiv.org/api/query?search_query=(%20(all%3Arecommender%20AND%20(all%3Auser%20OR%20all%3Aitem))%20OR%20all%3Arecsys%20OR%20all%3A%22collaborative%20filtering%22%20OR%20((all%3Arecommendation%20OR%20all%3Arecommend)%20AND%20(all%3Asequential%20OR%20all%3Aclick%20OR%20all%3Asession))%20OR%20((all%3Allm%20OR%20all%3Agenerative%20OR%20all%3A%22large%20language%20model%22)%20AND%20(all%3Arecommender%20OR%20all%3Arecsys)%20AND%20(all%3Auser%20OR%20all%3Aitem))%20)%20ANDNOT%20cat%3Aquant-ph&sortBy=submittedDate&sortOrder=descending&max_results=80",
   "source": "arXiv Atom API",
   "mergePolicy": "append-only：仅追加通过机构/顶会启发式的新篇，按 arXiv id 去重；历史条目保留。新篇按标题/摘要/作者及 DOI 等文本匹配知名企业与院校关键词，非完整 affiliation，会有漏检与误判。arXiv 检索以推荐系统为核心（recommender 与 user|item 同现、recsys、协同过滤、序列表征，或 LLM/生成式 与 recsys+user|item 同现），排除 quant-ph。",
   "disclaimer": "本列表由程序自动抓取与合并；方向以推荐系统为主、生成式推荐为子类；检索为关键词布尔组合，会有漏检与误检。机构筛选不能代替人工判断，请阅读原文并自行甄别。英文标题中文译名为机器翻译，仅供参考。",
   "items": [
+    {
+      "id": "2604.25834",
+      "title": "Action-Aware Generative Sequence Modeling for Short Video Recommendation",
+      "authors": [
+        "Wenhao Li",
+        "Zihan Lin",
+        "Zhengxiao Guo",
+        "Jie Zhou",
+        "Shukai Liu",
+        "Yongqi Liu",
+        "Chuan Luo",
+        "Chaoyi Ma",
+        "Ruiming Tang",
+        "Han Li"
+      ],
+      "published": "2026-04-28",
+      "updated": "2026-04-28",
+      "summary": "With the rapid development of the Internet, users have increasingly higher expectations for the recommendation accuracy of online content consumption platforms. However, short videos often contain diverse segments, and users may not hold the same attitude toward all of them. Traditional binary-classification recommendation models, which treat a video as a single holistic entity, face limitations in accurately capturing such nuanced preferences. Considering that user consumption is a temporal process, this paper demonstrates that the timing of user actions can represent diverse intentions through statistical analysis and examination of action patterns. Based on this insight, we propose a novel modeling paradigm: Action-Aware Generative Sequence Network (A2Gen), which refines user actions along the temporal dimension and chains them into sequences for unified processing and prediction. First, we introduce the Context-aware Attention Module (CAM) to model action sequences enriched with item-specific contextual features. Building upon this, we develop the Hierarchical Sequence Encoder (HSE) to learn temporal action patterns from users' historical actions. Finally, through leveraging CAM, we design a module for action sequence generation: the Action-seq Autoregressive Generator (AAG). Extensive offline experiments on the Kuaishou's dataset and the Tmall public dataset demonstrate the superiority of our proposed model. Furthermore, through large-scale online A/B testing deployed on Kuaishou's platform, our model achieves significant improvements over baseline methods in multi-task prediction by leveraging sequential information. Specifically, it yields increases of 0.34% in user watch time, 8.1% in interaction rate, and 0.162% in overall user retention (LifeTime-7), leading to successful deployment across all traffic, serving over 400 million users every day.",
+      "linkAbs": "http://arxiv.org/abs/2604.25834v1",
+      "linkPdf": "https://arxiv.org/pdf/2604.25834v1",
+      "categories": [
+        "cs.AI",
+        "cs.IR"
+      ],
+      "titleZh": "针对短视频推荐的动作感知生成序列建模"
+    },
+    {
+      "id": "2604.25732",
+      "title": "Personalized Multi-Interest Modeling for Cross-Domain Recommendation to Cold-Start Users",
+      "authors": [
+        "Xiaodong Li",
+        "Jiawei Sheng",
+        "Jiangxia Cao",
+        "Xinghua Zhang",
+        "Wenyuan Zhang",
+        "Yong Sun",
+        "Shirui Pan",
+        "Zhihong Tian",
+        "Tingwen Liu"
+      ],
+      "published": "2026-04-28",
+      "updated": "2026-04-28",
+      "summary": "Cross-domain recommendation (CDR) has demonstrated to be an effective solution for alleviating the user cold-start issue. By leveraging rich user-item interactions available in a richly informative source domain, CDR could improve the recommendation performance for cold-start users in the target domain. Previous CDR approaches mostly adhere the Embedding and Mapping (EMCDR) paradigm, which learns a user-shared mapping function to transfer users' preference from the source domain to the target domain, neglecting users' personalized preference. Recent CDR approaches further leverage the meta-learning paradigm, considering the CDR task for each user independently and learning user-specific mapping functions for each user. However, they mostly learn representations for each user individually, which ignores the common preference between different users, neglecting valuable information for CDR. In addition, all these approaches usually summarize the user's preference into an overall representation, which can hardly capture the user's multi-interest preference. To this end, we propose a personalized multi-interest modeling framework for CDR to cold-start users, termed as NF-NPCDR. Specifically, we propose a personalized preference encoder that enhances the neural process (NP) with the normalizing flow (NF) to convert the Gaussian (unimodal) distribution to a multimodal distribution, providing a novel way to capture the user's personalized multi-interest preference. Then, we propose a common preference encoder with a preference pool to capture the common preference between different users. Furthermore, we introduce a stochastic adaptive decoder to incorporate both the personalized and common preference for cold-start users, adaptively modulating both preference for better recommendation.",
+      "linkAbs": "http://arxiv.org/abs/2604.25732v1",
+      "linkPdf": "https://arxiv.org/pdf/2604.25732v1",
+      "categories": [
+        "cs.IR"
+      ],
+      "titleZh": "针对冷启动用户的跨域推荐个性化多利益建模"
+    },
+    {
+      "id": "2604.25689",
+      "title": "Spreadsheet Modeling Experiments Using GPTs on Small Problem Statements and the Wall Task",
+      "authors": [
+        "Thomas A. Grossman",
+        "Yuan Chen",
+        "Sopiko Datuashvili"
+      ],
+      "published": "2026-04-28",
+      "updated": "2026-04-28",
+      "summary": "This paper investigates how GPT-based tools can assist in building reusable analytical spreadsheet models. After a screening, we evaluate five GPT extensions and select Excel AI by pulsrai.com for detailed testing. Through structured experiments on simple problem statements, we assess Excel AI's performance against the ERFR criteria (each input in a cell; cell formulas; no hardwired numbers; labels; accurate). Results show that while Excel AI can produce well-structured models, it is inconsistent and often non-reproducible. We identify two central challenges - \"the problem of confidence\" and \"the problem of workflow\" - which highlight the need for skilled users to verify and adapt GPT-generated spreadsheets. Though GPTs show promise for generating draft models that may reduce development time or lower skill requirements, current tools remain unreliable for professional use. We conclude with recommendations for future research into prompt engineering, reproducibility, and larger-scale modeling tasks.",
+      "linkAbs": "http://arxiv.org/abs/2604.25689v1",
+      "linkPdf": "https://arxiv.org/pdf/2604.25689v1",
+      "categories": [
+        "cs.SE",
+        "cs.AI"
+      ],
+      "titleZh": "使用GPT对小问题陈述和墙壁任务进行电子表格建模实验"
+    },
+    {
+      "id": "2604.25420",
+      "title": "Recommending Usability Improvements with Multimodal Large Language Models",
+      "authors": [
+        "Sebastian Lubos",
+        "Alexander Felfernig",
+        "Damian Garber",
+        "Viet-Man Le",
+        "Manuel Henrich"
+      ],
+      "published": "2026-04-28",
+      "updated": "2026-04-28",
+      "summary": "Usability describes quality attributes of application user interfaces that determine how effectively users can interact with them. Traditional usability evaluation methods require considerable expertise and resources, which can be challenging, especially for small teams and organizations. Automating usability evaluation could make it more accessible and help to improve the user experience. The recent emergence of powerful multimodal large language models (MLLMs) has opened new opportunities for automating usability evaluation and recommendation of improvements. These models can process visual inputs such as images and videos alongside textual context, which enables the identification of usability issues and the generation of actionable suggestions to resolve these issues. In this paper, we present a novel automated approach that uses limited application context and screen recordings of user interactions as input to an MLLM. The model automatically identifies and describes usability issues based on Nielsens usability heuristics, and provides corresponding explanations and improvement recommendations. To reduce the developer effort of manual prioritization, the recommendations are ranked by severity. The quality and practical usefulness of the generated recommendations were evaluated based on a user study that involved software engineers as participants. The evaluation focused on the highest-ranked suggestions provided by the model. The results demonstrate the potential of our approach to provide low-effort usability improvement recommendations. This makes it a promising complement to traditional evaluation methods, especially in settings with limited access to usability experts. In this sense, the approach serves as a basis for future integration into development tools to enable automated usability evaluation within software engineering workflows.",
+      "linkAbs": "http://arxiv.org/abs/2604.25420v1",
+      "linkPdf": "https://arxiv.org/pdf/2604.25420v1",
+      "categories": [
+        "cs.SE",
+        "cs.HC"
+      ],
+      "titleZh": "建议使用多式联运大型语言模型改进可用性"
+    },
     {
       "id": "2604.24548",
       "title": "SpotVista: Availability-Aware Recommendation System for Reliable and Cost-Efficient Multi-Node Spot Instances",
@@ -45,6 +135,41 @@
         "cs.HC"
       ],
       "titleZh": "个人特征如何通过基于LLM的多代理系统塑造用户对多元化电影推荐的探索"
+    },
+    {
+      "id": "2604.25032",
+      "title": "Offline Evaluation Measures of Fairness in Recommender Systems",
+      "authors": [
+        "Theresia Veronika Rampisela"
+      ],
+      "published": "2026-04-27",
+      "updated": "2026-04-27",
+      "summary": "The evaluation of recommender system fairness has become increasingly important, especially with recent legislation that emphasises the development of fair and responsible artificial intelligence. This has led to the emergence of various fairness evaluation measures, which quantify fairness based on different definitions. However, many of such measures are simply proposed and used without further analysis on their robustness. As a result, there is insufficient understanding and awareness of the measures' limitations. Among other issues, it is not known what kind of model outputs produce the (un)fairest score, how the measure scores are empirically distributed, and whether there are cases where the measures cannot be computed (e.g., due to division by zero). These issues cause difficulty in interpreting the measure scores and confusion on which measure(s) should be used for a specific case. This thesis presents a series of papers that assess and overcome various theoretical, empirical, and conceptual limitations of existing recommender system fairness evaluation measures. We investigate a wide range of offline evaluation measures for different fairness notions, divided based on the evaluation subjects (users and items) and for different evaluation granularities (groups of subjects and individual subjects). Firstly, we perform theoretical and empirical analysis on the measures, exposing flaws that limit their interpretability, expressiveness, or applicability. Secondly, we contribute novel evaluation approaches and measures that overcome these limitations. Finally, considering the measures' limitations, we recommend guidelines for the appropriate measure usage, thereby allowing for more precise selection of fairness evaluation measures in practical scenarios. Overall, this thesis contributes to advancing the state-of-the-art offline evaluation of fairness in recommender systems.",
+      "linkAbs": "http://arxiv.org/abs/2604.25032v1",
+      "linkPdf": "https://arxiv.org/pdf/2604.25032v1",
+      "categories": [
+        "cs.IR"
+      ],
+      "titleZh": "线下推荐系统公平性评价指标"
+    },
+    {
+      "id": "2604.24981",
+      "title": "What If We Work Together? Fostering Reflections on Designer Inclusion in Open Source Software Through Speculative Design",
+      "authors": [
+        "Rozhan Hozhabri Nezhad",
+        "Jin L. C. Guo",
+        "Jinghui Cheng"
+      ],
+      "published": "2026-04-27",
+      "updated": "2026-04-27",
+      "summary": "Open source software (OSS) often prioritizes technical functionality over usability and UX design. This imbalance limits OSS adoption among broader, non-technical users. Key underlying factors contributing to this issue are the shortage of design expertise in OSS and a dominant developer-centric mindset. To address these persistent issues, we explore the potential of speculative design as a catalyst for transforming the OSS community's mindset towards a more designer-inclusive environment. Our design was informed by an analysis of online forums, which revealed designers' motivations and challenges when contributing to OSS. Guided by these insights, we created two speculative societies, Husia (collectivist) and Reetar (individualist), in which designers are valued for different reasons and their work incorporated in different ways. Through a user study with 12 OSS practitioners (seven designers and five developers), we found that our speculative societies provoked participants' rich and critical reflections on OSS values, the root causes of challenges, and proposed actions. Our work provides insights into how speculative design can be used in the practical, sociotechnical context of OSS to stimulate critical reflection, improve awareness, and yield recommendations for fostering an equitable, sustainable, and inclusive OSS environment.",
+      "linkAbs": "http://arxiv.org/abs/2604.24981v1",
+      "linkPdf": "https://arxiv.org/pdf/2604.24981v1",
+      "categories": [
+        "cs.HC",
+        "cs.SE"
+      ],
+      "titleZh": "如果我们一起工作会怎样？通过投机设计促进对开源软件中设计师包容性的反思"
     },
     {
       "id": "2604.23753",
