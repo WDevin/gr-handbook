@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-05-02T07:26:36.937Z",
+  "fetchedAt": "2026-05-03T07:51:26.942Z",
   "query": "http://export.arxiv.org/api/query?search_query=(%20(all%3Arecommender%20AND%20(all%3Auser%20OR%20all%3Aitem))%20OR%20all%3Arecsys%20OR%20all%3A%22collaborative%20filtering%22%20OR%20((all%3Arecommendation%20OR%20all%3Arecommend)%20AND%20(all%3Asequential%20OR%20all%3Aclick%20OR%20all%3Asession))%20OR%20((all%3Allm%20OR%20all%3Agenerative%20OR%20all%3A%22large%20language%20model%22)%20AND%20(all%3Arecommender%20OR%20all%3Arecsys)%20AND%20(all%3Auser%20OR%20all%3Aitem))%20)%20ANDNOT%20cat%3Aquant-ph&sortBy=submittedDate&sortOrder=descending&max_results=80",
   "source": "arXiv Atom API",
   "mergePolicy": "append-only：仅追加通过机构/顶会启发式的新篇，按 arXiv id 去重；历史条目保留。新篇按标题/摘要/作者及 DOI 等文本匹配知名企业与院校关键词，非完整 affiliation，会有漏检与误判。arXiv 检索以推荐系统为核心（recommender 与 user|item 同现、recsys、协同过滤、序列表征，或 LLM/生成式 与 recsys+user|item 同现），排除 quant-ph。",
