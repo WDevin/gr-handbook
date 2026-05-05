@@ -1,10 +1,57 @@
 {
-  "fetchedAt": "2026-05-04T08:21:38.573Z",
+  "fetchedAt": "2026-05-05T07:58:25.910Z",
   "query": "http://export.arxiv.org/api/query?search_query=(%20(all%3Arecommender%20AND%20(all%3Auser%20OR%20all%3Aitem))%20OR%20all%3Arecsys%20OR%20all%3A%22collaborative%20filtering%22%20OR%20((all%3Arecommendation%20OR%20all%3Arecommend)%20AND%20(all%3Asequential%20OR%20all%3Aclick%20OR%20all%3Asession))%20OR%20((all%3Allm%20OR%20all%3Agenerative%20OR%20all%3A%22large%20language%20model%22)%20AND%20(all%3Arecommender%20OR%20all%3Arecsys)%20AND%20(all%3Auser%20OR%20all%3Aitem))%20)%20ANDNOT%20cat%3Aquant-ph&sortBy=submittedDate&sortOrder=descending&max_results=80",
   "source": "arXiv Atom API",
   "mergePolicy": "append-only：仅追加通过机构/顶会启发式的新篇，按 arXiv id 去重；历史条目保留。新篇按标题/摘要/作者及 DOI 等文本匹配知名企业与院校关键词，非完整 affiliation，会有漏检与误判。arXiv 检索以推荐系统为核心（recommender 与 user|item 同现、recsys、协同过滤、序列表征，或 LLM/生成式 与 recsys+user|item 同现），排除 quant-ph。",
   "disclaimer": "本列表由程序自动抓取与合并；方向以推荐系统为主、生成式推荐为子类；检索为关键词布尔组合，会有漏检与误检。机构筛选不能代替人工判断，请阅读原文并自行甄别。英文标题中文译名为机器翻译，仅供参考。",
   "items": [
+    {
+      "id": "2605.01726",
+      "title": "FEDIN: Frequency-Enhanced Deep Interest Network for Click-Through Rate Prediction",
+      "authors": [
+        "Zenan Dai",
+        "Jinpeng Wang",
+        "Junwei Pan",
+        "Dapeng Liu",
+        "Lei Xiao",
+        "Shu-Tao Xia"
+      ],
+      "published": "2026-05-03",
+      "updated": "2026-05-03",
+      "summary": "Sequential recommendation models often struggle to capture latent periodic patterns in user interests, primarily due to the noise inherent in time-domain behavioral data. While frequency-domain analysis offers a global perspective to address this, existing approaches typically treat user sequences in isolation, overlooking the crucial context of the target item. In this work, we present a novel empirical observation: user attention scores exhibit distinct spectral entropy distributions when conditioned on positive versus negative target items. Specifically, true user interests manifest as highly concentrated spectral patterns with lower entropy in the frequency domain, whereas irrelevant behaviors appear as high-entropy noise. Leveraging this insight, we propose the Frequency-Enhanced Deep Interest Network (FEDIN). FEDIN introduces a frequency-domain branch that utilizes a target-aware spectrum filtering mechanism to isolate these periodic interest signals. Extensive experiments on three public datasets demonstrate that FEDIN consistently outperforms state-of-the-art sequential recommendation baselines, demonstrating superior robustness against noise. We have released our code at: https://github.com/otokoneko/FEDIN.",
+      "linkAbs": "http://arxiv.org/abs/2605.01726v1",
+      "linkPdf": "https://arxiv.org/pdf/2605.01726v1",
+      "categories": [
+        "cs.IR",
+        "cs.AI"
+      ],
+      "titleZh": "FEDIN ：频率增强的深度兴趣网络，用于点击率预测"
+    },
+    {
+      "id": "2605.01101",
+      "title": "Virtual Speech Therapist: A Clinician-in-the-Loop AI Speech Therapy Agent for Personalized and Supervised Therapy",
+      "authors": [
+        "Shakeel Sheikh",
+        "Patrick Marmaroli",
+        "MD Sahidullah",
+        "Slim Ouni",
+        "Fabrice Hirsch",
+        "Goncalo Leal",
+        "Bjorn W Schuller"
+      ],
+      "published": "2026-05-01",
+      "updated": "2026-05-01",
+      "summary": "This paper develops Virtual Speech Therapist (VST), an intelligent agent-based platform that streamlines stuttering assessment and delivers customized therapy planning through automated and adaptive AI-driven workflows. VST integrates state-of-the-art deep learning-based stuttering classification, and multi-agent large language model (LLM) reasoning to support evidence-based clinical decision-making. The VST begins with the acquisition and feature extraction of patient speech samples, followed by robust classification of stuttering types. Building on these outputs, VST initiates an agentic reasoning process in which specialized LLM agents autonomously generate, critique, and iteratively refine individualized therapy plans. A dedicated critic agent evaluates all generated therapy plans to ensure clinical safety, methodological soundness, and alignment with peer-reviewed evidence and established professional guidelines. The resulting output is a comprehensive, patient-specific therapy draft intended for clinician review. Incorporating clinician feedback, the system then produces a finalized therapy plan suitable for patient delivery, thereby maintaining a clinician-in-the-loop paradigm. Experimental evaluation by expert speech therapists confirms that VST consistently generates high-quality, evidence-based therapy recommendations. These findings demonstrate the system's potential to augment clinical workflows, reduce clinician burden, and improve therapeutic outcomes for individuals with speech impairments. An interactive user interface for the proposed system is available online at: https://vocametrix.com/ai/stuttering-therapy-planning-agent , facilitating real-time stuttering assessment and personalized therapy planning.",
+      "linkAbs": "http://arxiv.org/abs/2605.01101v1",
+      "linkPdf": "https://arxiv.org/pdf/2605.01101v1",
+      "categories": [
+        "cs.AI",
+        "cs.CL",
+        "cs.SD",
+        "eess.AS"
+      ],
+      "titleZh": "虚拟言语治疗师：用于个性化和监督治疗的临床医生在环AI言语治疗代理"
+    },
     {
       "id": "2604.27676",
       "title": "Users' Activity Logs: the Good, the Bad, the Misconception, and the Disastrous",
